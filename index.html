@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Formulário interativo para alunos, criado com HTML, CSS e JavaScript. Registre nomes, idades e matérias de estudo de forma prática e organizada."
+    />
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://cdn-icons-png.flaticon.com/512/1055/1055685.png"
+    />
+    <title>Formulário de Alunos</title>
+  </head>
+  <body data-theme="light">
+    <header>
+      <nav>
+        <a class="nav_pages" href="/"><i class="fi fi-rr-angle-left"></i></a>
+        <a class="nav_pages" href="/"><ion-icon name="home"></ion-icon></a>
+        <a class="nav_pages" href="/"><i class="fi fi-rr-angle-right"></i></a>
+      </nav>
+
+      <h1>Formulário de Alunos</h1>
+      <!-- Alternar Tema -->
+      <div>
+        <button id="toggle_Theme" class="toggle_Theme" onclick="toggle_Theme()">
+          <ion-icon id="icon_Theme" class="theme" name="moon"></ion-icon>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <fieldset>
+          <legend>Formulário de Alunos</legend>
+          <p><strong>Tema</strong>: .</p>
+          <form action="submit" id="form">
+            <div class="inputs">
+              <label for="inputName">Nome:</label>
+              <input
+                required
+                type="text"
+                class="Name"
+                id="inputName"
+                placeholder="Digite o nome."
+              />
+              <label for="inputAge">Idade:</label>
+              <input
+                type="number"
+                class="Age"
+                id="inputAge"
+                placeholder="Digite a idade."
+              />
+            </div>
+
+            <div class="inputs">
+              <label for="inputMatter">Matéria:</label>
+              <input
+                type="text"
+                class="matter"
+                id="inputMatter"
+                placeholder="Digite a matéria."
+              />
+              <label for="inputStudyTime">Tempo de estudo:</label>
+              <input
+                type="text"
+                class="temp"
+                id="inputStudyTime"
+                placeholder="Há quanto tempo você estuda?"
+              />
+            </div>
+
+            <div class="inputs">
+              <div class="div_buttons">
+                <button 
+                  class="arquiv_button" 
+                  id="submit"
+                  type="submit"
+                >
+                  Enviar
+                </button>
+  
+                <button
+                  class="arquiv_button"
+                  id="pullButton"
+                  type="button"
+                  onclick="startLoading()"
+                >
+                  Puxar
+                </button>
+  
+                <button
+                  class="arquiv_button"
+                  id="clearButton"
+                  type="button"
+                  style="display: none"
+                >
+                  Apagar
+                </button>
+              </div>
+              <div class="div_busca">
+                <input
+                  type="text"
+                  class="Search"
+                  id="inputSearch"
+                  placeholder="Digite um nome para buscar"
+                />
+                <button id="buttonSearch" type="button">
+                  <i class="fi fi-rr-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="textArea">
+              <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+              </div>
+
+              <textarea
+                readonly
+                name="textAlunos"
+                id="textAlunos"
+                placeholder="Alunos cadastrados aparecerão aqui."
+              ></textarea>
+            </div>
+          </form>
+        </fieldset>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Desenvolvido por Guilherme Reis.</p>
+      <br />
+      <p>
+        <a href="https://github.com/Guilherme-210" target="_blank"
+          >Acesse o meu GitHub <ion-icon name="logo-github"></ion-icon
+        ></a>
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="toggleTheme.js"></script>
+  </body>
+</html>
