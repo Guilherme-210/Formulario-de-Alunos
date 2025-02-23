@@ -4,8 +4,35 @@ const textArea = document.getElementById("textAlunos")
 const clearButton = document.getElementById("clearButton")
 const pullButton = document.getElementById("pullButton")
 const progressBar = document.getElementById("progressBar")
-
+const Search = document.getElementById("inputSearch").value
 let alunos = [] // Array para armazenar os alunos
+
+alunos = [
+  {
+    nome: "Guilherme",
+    idade: 25,
+    materia: "JavaScript",
+    tempo: "2 anos",
+  },
+  {
+    nome: "Pamela",
+    idade: 22,
+    materia: "HTML e CSS",
+    tempo: "1 ano e meio",
+  },
+  {
+    nome: "Leandro",
+    idade: 28,
+    materia: "React",
+    tempo: "3 anos",
+  },
+  {
+    nome: "Douglas",
+    idade: 30,
+    materia: "TypeScript",
+    tempo: "2 anos e meio",
+  },
+]
 
 // Evento de envio do formulário
 form.addEventListener("submit", function (ev) {
