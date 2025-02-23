@@ -338,7 +338,7 @@ input[type="number"] {
   display: flex-block;
   gap: var(--margin-small);
   text-align: center;
-  margin: var(--margin-medium) 0;
+  margin-top: var(--margin-medium);
   align-items: center;
 }
 /* estilização do fieldset - textarea */

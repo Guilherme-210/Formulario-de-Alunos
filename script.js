@@ -34,10 +34,10 @@ pullButton.addEventListener("click", function () {
         `Nome: ${aluno.nome},\nIdade: ${aluno.idade},\nMatéria: ${aluno.materia},\nTempo de estudos: ${aluno.tempo}\n\n`
     )
     .join("")
-
   startLoading() // Inicia a animação da barra de progresso
 
   setTimeout(() => {
+    textArea.value = ""
     textArea.value += texto
     clearButton.style.display = "inline-block" // Exibe o botão "Apagar"
   }, 2000)
@@ -69,8 +69,8 @@ function startLoading() {
 // Evento do botão "Apagar"
 clearButton.addEventListener("click", function () {
   if (textArea.value.trim() === "") {
-    clearButton.style.display = "none";
-    return;
+    clearButton.style.display = "none"
+    return
   }
 
   textArea.value = "" // Limpa a textArea
