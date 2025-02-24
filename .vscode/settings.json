@@ -38,5 +38,7 @@
     "lang": "pt-br",
     "charset": "UTF-8"
   },
-  "liveServer.settings.port": 5501
+
+  // porta do live serve
+  "liveServer.settings.port": 5500
 }
