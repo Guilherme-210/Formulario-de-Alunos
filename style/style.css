@@ -12,7 +12,7 @@
   --font-size-medium: 1rem; /* Tamanho de fonte médio */
   --font-size-large: 1.5rem; /* Tamanho de fonte grande */
   --font-size-xlarge: 1.75rem; /* Tamanho de fonte extra grande */
-  
+
   /* Espaçamentos */
   --padding-small: 0.5rem; /* Padding pequeno */
   --padding-medium: 0.75rem; /* Padding médio */
@@ -20,7 +20,7 @@
   --margin-small: 0.5rem; /* Margin pequeno */
   --margin-medium: 1rem; /* Margin médio */
   --margin-large: 2rem; /* Margin grande */
-  
+
   /* Bordas */
   --border-radius-small: 0.5rem; /* Raio de borda pequeno */
   --border-radius-medium: 1rem; /* Raio de borda médio */
@@ -29,11 +29,11 @@
 /* Variáveis de estilo - Tema claro */
 [data-theme="light"] {
   /* Cores */
-  --bg-color: #dedfe0; 
-  --border-color: #ccc; 
-  --text-color: #000; 
+  --bg-color: #dedfe0;
+  --border-color: #ccc;
+  --text-color: #000;
   --font-color: #212529;
-  
+
   --header-bg-color: #ffffff;
   --button-text-color: #ffffff;
   --button-hover-text-color: #0056b3;
@@ -44,13 +44,13 @@
 
   --code-background-color: #e4e4e4;
   --code-border-color: #a7a5a5;
-  --code-color: #007bff; 
-  --strong-code-color: #007bff; 
+  --code-color: #007bff;
+  --strong-code-color: #007bff;
 
   --footer-bg-color: #ffffff;
-  --footer-text-color: #212529; 
+  --footer-text-color: #212529;
   --footer-link-color: #007bff;
-  --footer-link-hover-color: #0056b3; 
+  --footer-link-hover-color: #0056b3;
 }
 /* Variáveis de estilo - Tema escuro */
 [data-theme="dark"] {
@@ -60,25 +60,24 @@
   --text-color: #000;
   --font-color: #f1f5f9;
 
-  --header-bg-color: #333; 
+  --header-bg-color: #333;
   --button-text-color: #000;
   --button-hover-text-color: #00ff00;
-  --button-bg-color: #00ff00; 
-  --button-hover-bg-color: #333; 
+  --button-bg-color: #00ff00;
+  --button-hover-bg-color: #333;
   --hover-text-color: #fff;
   --toggle-theme-icon: #ffd700;
 
   --code-background-color: #0d0d0d;
   --code-border-color: #5c5c5c;
-  --code-color: #00ff00; 
-  --strong-code-color: #00ff00; 
-  
-  --footer-bg-color: #333; 
+  --code-color: #00ff00;
+  --strong-code-color: #00ff00;
+
+  --footer-bg-color: #333;
   --footer-text-color: #f1f5f9;
   --footer-link-color: #00ff00;
   --footer-link-hover-color: #ffffff;
 }
-
 
 /* estilização do body */
 body {
@@ -96,7 +95,7 @@ header {
   align-items: center;
   justify-content: space-around;
   gap: var(--margin-small);
-  
+
   padding: var(--padding-large);
   background-color: var(--header-bg-color);
 }
@@ -146,7 +145,6 @@ h1 {
 
 /* estilização da main */
 main {
-  max-width: 100%;
   width: 90%;
   margin: var(--margin-large) auto;
   padding: var(--padding-large);
@@ -159,7 +157,6 @@ fieldset {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   color: var(--font-color);
   padding: var(--padding-large);
-  margin-bottom: 20px;
 }
 
 /* estilização do fieldset - legend */
@@ -185,10 +182,10 @@ p {
   background-color: var(--code-border-color);
   color: #ccc;
   width: 100%;
-  padding: .3rem;
+  padding: 0.3rem;
   margin-bottom: 10px;
   border-radius: 10px;
-} 
+}
 .code_type p {
   margin: 10px 15px;
   color: var(--font-color);
@@ -297,7 +294,6 @@ button:hover ion-icon {
   transition: 0.2s;
 }
 
-
 /* estilização do fieldset - input */
 input,
 select {
@@ -331,7 +327,6 @@ input[type="number"] {
   -webkit-appearance: none;
   appearance: none;
 }
-
 
 /* estilização dos div inputs */
 .textArea {
@@ -377,8 +372,12 @@ footer {
   background-color: var(--footer-bg-color);
   color: var(--footer-text-color);
   text-align: center;
-  padding: var(--padding-large); /* Você pode definir essa variável se necessário */
-  margin-top: var(--margin-large); /* Você pode definir essa variável se necessário */
+  padding: var(
+    --padding-large
+  ); /* Você pode definir essa variável se necessário */
+  margin-top: var(
+    --margin-large
+  ); /* Você pode definir essa variável se necessário */
 }
 footer a {
   color: var(--footer-link-color);
@@ -388,4 +387,114 @@ footer a {
 footer a:hover {
   color: var(--footer-link-hover-color);
   text-decoration: underline;
+}
+
+/* Estilos para telas menores (tablets, smartphones grandes) */
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: var(--font-size-medium);
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .inputs{
+    flex-direction: column;
+  }
+  .div_buttons,
+  .div_busca {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .arquiv_button {
+    width: 50%;
+  }
+}
+
+/* Estilos para telas pequenas (smartphones) */
+@media screen and (max-width: 768px) {
+  * {
+    font-size: var(--font-size-small);
+  }
+
+  h1 {
+    font-size: var(--font-size-large);
+  }
+
+  main {
+    width: 95%;
+    padding: var(--padding-small);
+  }
+
+  fieldset {
+    padding: var(--padding-medium);
+  }
+
+  .inputs{
+    flex-direction: column;
+    margin-top: 8px;
+  }
+  .div_buttons,
+  .div_busca {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .arquiv_button {
+    width: 70%;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: var(--font-size-small);
+    padding: var(--padding-small);
+    margin: 0;
+  }
+}
+
+/* Estilos para telas muito pequenas (celulares pequenos) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: var(--font-size-medium);
+  }
+
+  .nav_pages {
+    font-size: var(--font-size-small);
+    padding: var(--padding-small);
+  }
+
+  .inputs{
+    flex-direction: column;
+    margin-top: 8px;
+  }
+  .div_buttons,
+  .div_busca {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .arquiv_button {
+    width: 90%;
+  }
+
+  button {
+    font-size: var(--font-size-small);
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    font-size: var(--font-size-small);
+    padding: var(--padding-small);
+    margin: 0;
+  }
+
+  footer {
+    padding: var(--padding-small);
+  }
 }
