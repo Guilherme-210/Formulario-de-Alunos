@@ -42,11 +42,6 @@
   --hover-text-color: #000000;
   --toggle-theme-icon: #007bff;
 
-  --code-background-color: #e4e4e4;
-  --code-border-color: #a7a5a5;
-  --code-color: #007bff;
-  --strong-code-color: #007bff;
-
   --footer-bg-color: #ffffff;
   --footer-text-color: #212529;
   --footer-link-color: #007bff;
@@ -67,11 +62,6 @@
   --button-hover-bg-color: #333;
   --hover-text-color: #fff;
   --toggle-theme-icon: #ffd700;
-
-  --code-background-color: #0d0d0d;
-  --code-border-color: #5c5c5c;
-  --code-color: #00ff00;
-  --strong-code-color: #00ff00;
 
   --footer-bg-color: #333;
   --footer-text-color: #f1f5f9;
@@ -94,15 +84,23 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: var(--margin-small);
 
   padding: var(--padding-large);
   background-color: var(--header-bg-color);
 }
 
+.div_header {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  gap: 1rem;
+} 
 /* estilização do header - nav */
+nav {
+  display: flex;
+  gap: 1rem;
+}
 .nav_pages {
-  margin: var(--margin-small);
   padding: var(--padding-small) var(--padding-medium);
 
   text-decoration: none;
@@ -129,11 +127,12 @@ h1 {
   margin: var(--margin-small);
   padding: var(--padding-small) var(--padding-medium);
   font-size: var(--font-size-xlarge);
+  white-space: nowrap;
 }
 
 /* estilizando o toggle-Thema */
 .toggle_Theme {
-  margin: var(--margin-small);
+  margin: 0;
   padding: var(--padding-small) var(--padding-medium);
 }
 .toggle_Theme:hover {
@@ -175,41 +174,6 @@ form {
 /* estilização do fieldset - p */
 p {
   margin: var(--margin-small);
-}
-
-/* estilização do fieldset - .code */
-.code_type {
-  background-color: var(--code-border-color);
-  color: #ccc;
-  width: 100%;
-  padding: 0.3rem;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-.code_type p {
-  margin: 10px 15px;
-  color: var(--font-color);
-}
-.code {
-  background-color: var(--code-background-color);
-  border-radius: 0 0 10px 10px;
-  padding: 20px;
-  overflow-x: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* estilização do fieldset - pre & code */
-pre,
-code {
-  font-family: "Fira Code", monospace;
-  color: var(--button-bg-color);
-  white-space: pre-wrap;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-strong {
-  color: var(--strong-code-color);
 }
 
 /* estilização dos div inputs */
@@ -303,7 +267,7 @@ select {
   color: var(--font-color);
   display: block;
   font-size: var(--font-size-small);
-  margin: var(--margin-small);
+  margin: var(--margin-small) 0;
   padding: var(--padding-medium);
   text-align: end;
   width: 100%;
@@ -401,6 +365,7 @@ footer a:hover {
   }
 
   .inputs{
+    align-items: start;
     flex-direction: column;
   }
   .div_buttons,
