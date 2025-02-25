@@ -130,7 +130,10 @@ document.getElementById("buttonSearch").addEventListener("click", function () {
     textArea.value = ""; // Limpa a área de texto
 
     if (alunoEncontrado) {
-      textArea.value = `Nome: ${alunoEncontrado.nome}\nIdade: ${alunoEncontrado.idade}\nMatéria: ${alunoEncontrado.materia}\nTempo de estudo: ${alunoEncontrado.tempo}\n\n`;
+      document.getElementById(
+        "inputSearch"
+      ).value = ""
+      textArea.value = `Nome: ${alunoEncontrado.nome}\nIdade: ${alunoEncontrado.idade}\nMatéria: ${alunoEncontrado.materia}\nTempo de estudo: ${alunoEncontrado.tempo}\n\n`
     } else {
       textArea.value = "Aluno não encontrado!";
     }
