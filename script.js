@@ -34,16 +34,31 @@ alunos = [
   },
 ]
 
+function capitalizeFirstLetter(text) {
+  if (typeof text !== "string") {
+    return ""
+  }
+  return text
+    .toLowerCase()
+    .split(" ")
+    .map((palavra) => palavra.charAt(0).toUpperCase() + palavra.slice(1))
+    .join(" ")
+}
+
 // Evento de envio do formulário
 form.addEventListener("submit", function (ev) {
   ev.preventDefault()
+  
+  // Captura e formata o valor do input "nome"
+  let nomeInput = document.getElementById("inputName").value.trim()
+  let capitalizedName = capitalizeFirstLetter(nomeInput)
 
   // Captura dos valores dos inputs
   const aluno = {
-    nome: document.getElementById("inputName").value,
-    idade: document.getElementById("inputAge").value,
-    materia: document.getElementById("inputMatter").value,
-    tempo: document.getElementById("inputStudyTime").value,
+    nome: capitalizedName,
+    idade: document.getElementById("inputAge").value.trim(),
+    materia: document.getElementById("inputMatter").value.trim(),
+    tempo: document.getElementById("inputStudyTime").value.trim(),
   }
 
   alunos.push(aluno) // Adiciona o aluno ao array
