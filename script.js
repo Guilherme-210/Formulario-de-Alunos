@@ -6,35 +6,16 @@ const pullButton = document.getElementById("pullButton")
 const progressBar = document.getElementById("progressBar")
 const Search = document.getElementById("inputSearch").value
 let alunos = [] // Array para armazenar os alunos
+let fullID = gerarIDUnico()
 
-alunos = [
-  {
-    nome: "Guilherme",
-    idade: 25,
-    materia: "JavaScript",
-    tempo: "2 anos",
-  },
-  {
-    nome: "Pamela",
-    idade: 22,
-    materia: "HTML e CSS",
-    tempo: "1 ano e meio",
-  },
-  {
-    nome: "Leandro",
-    idade: 28,
-    materia: "React",
-    tempo: "3 anos",
-  },
-  {
-    nome: "Douglas",
-    idade: 30,
-    materia: "TypeScript",
-    tempo: "2 anos e meio",
-  },
-]
+// Gerador de ID
+function gerarIDUnico() {
+  const timestamp = new Date().getTime().toString(36)
+  const random = Math.random().toString(36).substring(2, 15)
+  return timestamp + random
+}
 
-// modifica a primeira leta para maiuscula
+// modifica a primeira letra para maiuscula
 function capitalizeFirstLetter(text) {
   if (typeof text !== "string") {
     return ""
@@ -46,17 +27,38 @@ function capitalizeFirstLetter(text) {
     .join(" ")
 }
 
-// Gerador de ID
-function gerarIDUnico() {
-  const timestamp = new Date().getTime().toString(36)
-  const random = Math.random().toString(36).substring(2, 15)
-  return timestamp + random
-}
+// Exemplo:
+// alunos = [
+//   {
+//     nome: "Guilherme",
+//     idade: 25,
+//     materia: "JavaScript",
+//     tempo: "2 anos",
+//   },
+//   {
+//     nome: "Pamela",
+//     idade: 22,
+//     materia: "HTML e CSS",
+//     tempo: "1 ano e meio",
+//   },
+//   {
+//     nome: "Leandro",
+//     idade: 28,
+//     materia: "React",
+//     tempo: "3 anos",
+//   },
+//   {
+//     nome: "Douglas",
+//     idade: 30,
+//     materia: "TypeScript",
+//     tempo: "2 anos e meio",
+//   },
+// ]
 
 // Evento de envio do formulário
 form.addEventListener("submit", function (ev) {
   ev.preventDefault()
-  
+
   // Captura e formata o valor do input "nome"
   let nomeInput = document.getElementById("inputName").value.trim()
   let capitalizedName = capitalizeFirstLetter(nomeInput)
@@ -82,7 +84,7 @@ pullButton.addEventListener("click", function () {
   let texto = alunos
     .map(
       (aluno) =>
-        `Nome: ${aluno.nome},\nId: ${aluno.id}\nIdade: ${aluno.idade},\nMatéria: ${aluno.materia},\nTempo de estudos: ${aluno.tempo}\n\n`
+        `Nome: ${aluno.nome}\nId: ${aluno.id}\nIdade: ${aluno.idade}\nMatéria: ${aluno.materia}\nTempo de estudos: ${aluno.tempo}\n\n`
     )
     .join("")
   startLoading() // Inicia a animação da barra de progresso
@@ -108,13 +110,12 @@ function startLoading() {
     progressBar.style.background = "#00ff00" // Muda para verde ao concluir
 
     setTimeout(() => {
-      progressBar.style.width = "0%"
-    }, 500)
-
-    setTimeout(() => {
       progressBar.style.background = "none"
+      setTimeout(() => {
+        progressBar.style.width = "0%"
+      }, 500)
     }, 1000)
-  }, 2050)
+  }, 2000)
 }
 
 // Evento do botão "Apagar"
@@ -137,31 +138,32 @@ clearButton.style.display = "none"
 
 // Busca de aluno
 document.getElementById("buttonSearch").addEventListener("click", function () {
-  const nomeBuscado = document.getElementById("inputSearch").value.trim().toLowerCase();
+  const nomeBuscado = document
+    .getElementById("inputSearch")
+    .value.trim()
+    .toLowerCase()
 
   if (!nomeBuscado) {
-    alert("Digite um nome para buscar!");
-    return;
+    alert("Digite um nome para buscar!")
+    return
   }
 
-  startLoading(); // Inicia animação da barra de progresso
+  startLoading() // Inicia animação da barra de progresso
 
   setTimeout(() => {
     const alunoEncontrado = alunos.find(
       (aluno) => aluno.nome.toLowerCase() === nomeBuscado
-    );
+    )
 
-    textArea.value = ""; // Limpa a área de texto
+    textArea.value = "" // Limpa a área de texto
 
     if (alunoEncontrado) {
-      document.getElementById(
-        "inputSearch"
-      ).value = ""
-      textArea.value = `Nome: ${alunoEncontrado.nome}\nId: ${alunoEncontrado.id}\nIdade: ${alunoEncontrado.idade}\nMatéria: ${alunoEncontrado.materia}\nTempo de estudo: ${alunoEncontrado.tempo}\n\n`
+      document.getElementById("inputSearch").value = ""
+      textArea.value = `Nome: ${alunoEncontrado.nome}\nId: ${aluno.id}\nIdade: ${alunoEncontrado.idade}\nMatéria: ${alunoEncontrado.materia}\nTempo de estudo: ${alunoEncontrado.tempo}\n\n`
     } else {
-      textArea.value = "Aluno não encontrado!";
+      textArea.value = "Aluno não encontrado!"
     }
 
-    clearButton.style.display = "inline-block"; // Exibe o botão "Apagar"
-  }, 2000);
-});
+    clearButton.style.display = "inline-block" // Exibe o botão "Apagar"
+  }, 2000)
+})
