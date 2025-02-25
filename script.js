@@ -34,6 +34,7 @@ alunos = [
   },
 ]
 
+// modifica a primeira leta para maiuscula
 function capitalizeFirstLetter(text) {
   if (typeof text !== "string") {
     return ""
@@ -43,6 +44,13 @@ function capitalizeFirstLetter(text) {
     .split(" ")
     .map((palavra) => palavra.charAt(0).toUpperCase() + palavra.slice(1))
     .join(" ")
+}
+
+// Gerador de ID
+function gerarIDUnico() {
+  const timestamp = new Date().getTime().toString(36)
+  const random = Math.random().toString(36).substring(2, 15)
+  return timestamp + random
 }
 
 // Evento de envio do formulário
@@ -56,6 +64,7 @@ form.addEventListener("submit", function (ev) {
   // Captura dos valores dos inputs
   const aluno = {
     nome: capitalizedName,
+    id: gerarIDUnico(),
     idade: document.getElementById("inputAge").value.trim(),
     materia: document.getElementById("inputMatter").value.trim(),
     tempo: document.getElementById("inputStudyTime").value.trim(),
@@ -73,7 +82,7 @@ pullButton.addEventListener("click", function () {
   let texto = alunos
     .map(
       (aluno) =>
-        `Nome: ${aluno.nome},\nIdade: ${aluno.idade},\nMatéria: ${aluno.materia},\nTempo de estudos: ${aluno.tempo}\n\n`
+        `Nome: ${aluno.nome},\nId: ${aluno.id}\nIdade: ${aluno.idade},\nMatéria: ${aluno.materia},\nTempo de estudos: ${aluno.tempo}\n\n`
     )
     .join("")
   startLoading() // Inicia a animação da barra de progresso
@@ -148,7 +157,7 @@ document.getElementById("buttonSearch").addEventListener("click", function () {
       document.getElementById(
         "inputSearch"
       ).value = ""
-      textArea.value = `Nome: ${alunoEncontrado.nome}\nIdade: ${alunoEncontrado.idade}\nMatéria: ${alunoEncontrado.materia}\nTempo de estudo: ${alunoEncontrado.tempo}\n\n`
+      textArea.value = `Nome: ${alunoEncontrado.nome}\nId: ${alunoEncontrado.id}\nIdade: ${alunoEncontrado.idade}\nMatéria: ${alunoEncontrado.materia}\nTempo de estudo: ${alunoEncontrado.tempo}\n\n`
     } else {
       textArea.value = "Aluno não encontrado!";
     }
